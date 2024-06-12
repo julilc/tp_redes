@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmania</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Enlace a tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="description" content="Página de una sola página con información sobre películas">
+    <meta name="keywords" content="películas, cine">
+    <meta name="author" content="Julieta Lopez Ceratto & David Slepoy">
+    <meta name="copyright" content="Filmania">
+    <script src="js/main.js"></script>
+
+</head>
+<body>
+    <div class="container-fluid white-box">
+        <header class="mb-3">
+            <nav class="navbar navbar-expand-xl nav">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="src/img/logo.png" alt="Filmania Logo" width="105" height="85" class="d-inline-block align-text-center" href = '#inicio'>
+                        <p class="mb-0" href = #Filmania>Filmania</p>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#Buscar_pelicula">Buscar película</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Agregar_pelicula">Agregar película</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Modificar_pelicula">Modificar película</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Eliminar_pelicula">Eliminar película</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+     <!---Buscar pelicula-->
+    <div id="buscar-pelicula-section" style="display: none;" class = form>
+       <div class="card">
+           <div class="card-header">
+               Buscar Película
+           </div>
+           <div class="card-body">
+               <form id="buscar-pelicula-form">
+                   <div class="mb-3">
+                       <label for="nombre-pelicula" class="form-label">Nombre de la película</label>
+                       <input type="text" class="form-control" id="nombre-pelicula" name="nombre" >
+                   </div>
+                   <div class="mb-3">
+                       <label for="año-pelicula" class="form-label">Año de lanzamiento</label>
+                       <input type="number" class="form-control" id="año-pelicula" name="año" >
+                   </div>
+                   <button type="submit" class="btn btn-primary">Buscar Película</button>
+               </form>
+           </div>
+       </div>
+    </div>
+
+   <!---agregar pelicula-->
+   <div id="agregar-pelicula-section" style="display: none;" class = form>
+       <div class="card">
+          <div class="card-header">
+               Agregar Película
+           </div>
+           <div class="card-body">
+               <form id="agregar-pelicula-form">
+                   <div class="mb-3">
+                       <label for="nombre-pelicula" class="form-label">Nombre de la película</label>
+                       <input type="text" class="form-control" id="nombre-pelicula" name="nombre" required>
+                   </div>
+                   <div class="mb-3">
+                       <label for="año-pelicula" class="form-label">Año de lanzamiento</label>
+                       <input type="number" class="form-control" id="año-pelicula" name="año" required>
+                   </div>
+                   <div class="mb-3">
+                       <label for="cast" class="form-label">Cast</label>
+                       <input type="text" class="form-control" id="Cast" name="Cast">
+                   </div>
+                   <div class="mb-3">
+                       <label for="genres" class="form-label">Generos</label>
+                       <input type="text" class="form-control" id="genres" name="genres">
+                   </div>
+                   <div class="mb-3">
+                       <label for="href" class="form-label">href</label>
+                       <input type="text" class="form-control" id="href" name="href">
+                   </div>
+                   <div class="mb-3">
+                       <label for="extract" class="form-label">Resumen</label>
+                       <input type="text" class="form-control" id="extract" name="extract">
+                   </div>
+                   <div class="mb-3">
+                       <label for="thumbnail" class="form-label">thumbnail</label>
+                       <input type="text" class="form-control" id="thumbnail" name="thumbnail">
+                   </div>
+                   <div class="mb-3">
+                       <label for="thumbnail_width" class="form-label">thumbnail_width</label>
+                       <input type="text" class="form-control" id="thumbnail_width" name="thumbnail_width">
+                   </div>
+                   <div class="mb-3">
+                       <label for="thumbnail_height" class="form-label">thumbnail_height</label>
+                       <input type="text" class="form-control" id="thumbnail_height" name="thumbnail_height">
+                   </div>
+                   <button type="submit" class="btn btn-primary">Agregar Película</button>
+               </form>
+           </div>
+       </div>
+   </div>
+
+   <!---Modificar pelicula-->
+    <div id="modificar-pelicula-section" style="display: none;" class = form>
+       <div class="card">
+           <div class="card-header">
+               modificar Película
+           </div>
+           <div class="card-body">
+               <form id="modificar-pelicula-form">
+                   <div class="mb-3">
+                       <label for="nombre-pelicula" class="form-label">Nombre de la película</label>
+                       <input type="text" class="form-control" id="nombre-pelicula" name="nombre" required>
+                   </div>
+                   <div class="mb-3">
+                       <label for="año-pelicula" class="form-label">Año de lanzamiento</label>
+                       <input type="number" class="form-control" id="año-pelicula" name="año" required>
+                   </div>
+                   <button type="submit" class="btn btn-primary">modificar Película</button>
+               </form>
+           </div>
+       </div>
+    </div>
+
+   <!---Eliminar pelicula-->
+   <div id="eliminar-pelicula-section" style="display: none;" class = form>
+    <div class="card">
+        <div class="card-header">
+            Eliminar Película
+        </div>
+        <div class="card-body">
+            <form id="eliminar-pelicula-form">
+                <div class="mb-3">
+                    <label for="nombre-pelicula" class="form-label">Nombre de la película</label>
+                    <input type="text" class="form-control" id="nombre-pelicula" name="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="año-pelicula" class="form-label">Año de lanzamiento</label>
+                    <input type="number" class="form-control" id="año-pelicula" name="año" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Eliminar Película</button>
+            </form>
+        </div>
+    </div>
+ </div>
+
+ <!--box info buscar-->
+ <div id="info-box" style="display: none;" class="info">
+    <div id="info-content-wrapper"> <!-- Contenedor adicional -->
+        <div id="info-content"></div>
+    </div>
+    <button id="close-button">Cerrar</button>
+</div>
+           <!-- Bootstrap JS (incluye Popper.js primero) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
+

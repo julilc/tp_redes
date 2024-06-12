@@ -1,0 +1,124 @@
+/* css/main.css */
+
+/* Use a relative path to the background image */
+body {
+    background-image: url('../src/img/background.jpg'); /* Navigate one directory up and then into src/img */
+    background-size: cover; /* Ensures the background image covers the whole area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-attachment: fixed; /* Ensure the background image stays fixed on scroll */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ensure body takes up the full height of the viewport */
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#logo {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+#titleLogo {
+    margin: 0;
+}
+
+.nav-container {
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+/* css/main.css */
+
+/* Estilos para el recuadro blanco */
+.white-box {
+    background-color: white;
+    padding: 20px; /* Espacio alrededor del contenido dentro del recuadro */
+    max-width: 600px; /* Ancho máximo del recuadro */
+    margin: 0 auto; /* Centrar el recuadro horizontalmente */
+    margin-top: 0 auto; /* Espacio máximo desde la parte superior de la barra */
+    border-radius: 50px;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: transparent; /* Hacer transparente la barra de navegación */
+}
+
+.navbar-brand {
+    margin-right: 15px; /* Espacio entre el logo y el texto */
+}
+
+.nav-link {
+    color: black; /* Color del texto de los enlaces */
+}
+
+/* Estilos para el logo y el nombre */
+.navbar-brand img {
+    margin-bottom: 5px; /* Espacio entre el logo y el texto */
+}
+
+.navbar-brand p {
+    margin: 0; /* Eliminar el margen del párrafo */
+}
+
+.form {
+    width: 80%;
+    height: 80%;
+    padding: auto;  
+    margin: 5%;
+}
+
+#info-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+#info-content {
+    margin-bottom: 10px;
+}
+#info-content-wrapper {
+    max-height: 600px; /* Altura máxima del contenedor de información */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede la altura máxima */
+}
+
+#close-button {
+    display: block;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
