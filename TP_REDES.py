@@ -52,55 +52,66 @@ def buscar(nombre = None, año = None):
 
 @app.post("/my-first-api")
 def agregar_peli(nombre:str,año:int,cast=None,genres=None, href=None, extract=None,thumbnail=None, thumbnail_width=None, thumbnail_height=None ):
+    pelicula_agregar = buscar(nombre, año)
+    print(type(pelicula_agregar))
+    if type(pelicula_agregar) != list:
+        with open(ruta,'r+', encoding='ANSI') as file:
+            data = json.load(file)
+            if cast != None:
+                cast = cast.split(sep = ',')
+            if genres != None:
+               genres = genres.split(sep = ',')
+            nueva_pelicula = {
+                'title' : nombre,
+                'year' : año,
+                'cast' : cast,
+                'genres' : genres,
+                'href' : href,
+                'extract':extract,
+                'thumbnail' : thumbnail,
+                'thumbnail_width':thumbnail_width,
+                'thumbnail_height':thumbnail_height
+            }
+        
+            #va al inicio del archivo
+            file.seek(0)
 
-    with open(ruta,'r+', encoding='ANSI') as file:
-        data = json.load(file)
-    
-        nueva_pelicula = {
-            'title' : nombre,
-            'year' : año,
-            'cast' : list(cast),
-            'genres' : list(genres),
-            'href' : href,
-            'extract':extract,
-            'thumbnail' : thumbnail,
-            'thumbnail_width':thumbnail_width,
-            'thumbnail_height':thumbnail_height
-        }
-    
-        #va al inicio del archivo
-        file.seek(0)
+            data.append(nueva_pelicula)
+            json.dump(data, file, indent=4, ensure_ascii=False)
 
-        data.append(nueva_pelicula)
-        print('pelicula append')
-        json.dump(data, file, indent=4, ensure_ascii=False)
-        print('pelicula dump')
-
-        #trunca el tamaño del archivo
-        file.truncate()
-    file.close()    
+            #trunca el tamaño del archivo
+            file.truncate()
+        file.close()
+        return('Pelicula agregada')
+    else:
+        return('Ya existe la pelicula')    
 
 
 @app.put("/my-first-api")
 def actualizar(nombre: str, año: int, title = None,year = None,cast=None,genres=None, href=None, extract=None,thumbnail=None, thumbnail_width=None, thumbnail_height=None ):
+    if cast != None:
+        cast = cast.split(sep = ',')
+    if genres != None:
+        genres = genres.split(sep = ',')
+    
     variables_actualizar = {'title':title, 'year':year, 'cast':cast, 'genres':genres, 'href':href,'extract':extract, 'thumbnail':thumbnail, 'thumbnail_width':thumbnail_width, 'thumbnail_height':thumbnail_height} 
+    #Usamos la funcion buscar para ver si existe la película
     pelicula_actualizar = buscar(nombre, año)
-    print(pelicula_actualizar)
     if pelicula_actualizar != str:
-
+        #Si no es un str, entonces existe la película, por lo que realizamos la actualización.
         with open(ruta,'r+', encoding='ANSI') as file:
 
             data = json.load(file)
 
             for pelicula in data:
-                if pelicula['title'] == nombre and pelicula['year'] == año:
+                if pelicula['title'] == nombre and pelicula['year'] == int(año):
                     for nombre_variable, valor_variable in variables_actualizar.items():
 
                         #si la variable tiene un valor para actualizar la actualiza
                         if valor_variable != None and valor_variable != 'borrar' and valor_variable != 0:
                             pelicula[nombre_variable] = valor_variable
 
-                            #si la variable tiene un valor para borrar la borra
+                        #si la variable tiene un valor para borrar la borra
                         elif valor_variable == 'borrar' or valor_variable == 0:
                             if nombre_variable == 'year':
                                 pelicula[nombre_variable] = 0
@@ -125,7 +136,7 @@ def borrar(nombre,año):
     with open(ruta, 'r+', encoding='ANSI') as file:
         data = json.load(file)
         for pelicula in data:
-            if pelicula['title'] == nombre and pelicula['year'] == año:
+            if pelicula['title'] == nombre and pelicula['year'] == int(año):
                 data.remove(pelicula)
                 with open(ruta, 'w', encoding='ANSI') as file:
                     json.dump(data, file, indent=4, ensure_ascii=False)
