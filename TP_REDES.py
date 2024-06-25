@@ -2,7 +2,7 @@ from fastapi import FastAPI
 import json
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
-ruta = r'C:\Users\julil\OneDrive\Escritorio\tp_redes\movies.json'
+ruta = r'movies.json'
 
 # Configurar CORS
 app.add_middleware(
